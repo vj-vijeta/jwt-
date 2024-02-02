@@ -20,4 +20,37 @@ function urlBase64Encode(str) {
       .then((signature) => urlBase64Encode(String.fromCharCode.apply(null, new Uint8Array(signature))));
   }
   
+
+  function fetchJWTTokens() {
+    const secretKey = "";
   
+    const header = {
+      alg: 'HS256',
+      typ: 'JWT'
+    };
+  
+    const payload = {
+      "id": "65b77dbd49672454f497cb50",
+      "host": "edu-initiatives.proctoring.app",
+      "username": "admin",
+      "nickname": null,
+      "role": "student",
+      "provider": null,
+      "group": null,
+      "exp": 1706706900,
+      "iat": 1706699376,
+      "identifier": "1234567890",
+      "template": "bqjfehqfkh"
+    };
+  
+    generateJWTSignature(header, payload, secretKey)
+      .then((signature) => {
+        const token = `${urlBase64Encode(JSON.stringify(header))}.${urlBase64Encode(JSON.stringify(payload))}.${signature}`;
+        console.log(token);
+        document.getElementById('jwt-token').innerText = token;
+      })
+      .catch((error) => console.error(error));
+  }
+  
+  // Call the function when the script is loaded
+  fetchJWTTokens();
