@@ -30,17 +30,17 @@ function urlBase64Encode(str) {
     };
   
     const payload = {
-      "id": "65b77dbd49672454f497cb50",
-      "host": "edu-initiatives.proctoring.app",
+      "id": "random key",
+      "host": "dummy.host",
       "username": "admin",
-      "nickname": null,
+      "nickname": "admin",
       "role": "student",
       "provider": null,
       "group": null,
-      "exp": 1706706900,
-      "iat": 1706699376,
+      "exp": 175487528,
+      "iat": 176328976,
       "identifier": "1234567890",
-      "template": "bqjfehqfkh"
+      "template": "yukfkkjckj"
     };
   
     generateJWTSignature(header, payload, secretKey)
