@@ -22,7 +22,7 @@ function urlBase64Encode(str) {
   
 
   function fetchJWTTokens() {
-    const secretKey = "";
+    const secretKey = "enter the secrete key here";
   
     const header = {
       alg: 'HS256',
